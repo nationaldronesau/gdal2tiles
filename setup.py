@@ -12,7 +12,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-gdal_package = 'GDAL'
+gdal_package = 'pygdal'
 try:
     gdal_version = subprocess.check_output(
         'gdal-config --version',
