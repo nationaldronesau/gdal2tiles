@@ -15,7 +15,7 @@ gdal2tiles
 
 
 A python library for generating map tiles inspired by gdal2tiles.py_ from GDAL_ project.
-
+Currently only works with gdal versions 2.4.0 and 2.4.2
 
 Dependancies
 ------------
