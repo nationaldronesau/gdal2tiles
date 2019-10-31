@@ -12,7 +12,19 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-gdal_package = 'pygdal==3.0.1.5'
+gdal_package = 'pygdal'
+
+gdal_version = subprocess.check_output(
+        'gdal-config --version',
+        stderr=subprocess.STDOUT,
+        shell=True
+    ).decode('utf-8').strip()
+    
+if gdal_version.startswith('2.4.0'):
+    gdal_package = gdal_package + '==2.4.0.5'
+elif gdal_version.startswith('2.4.2'):
+    gdal_package = gdal_package + '==2.4.2.5'
+
 
 requirements = [gdal_package]
 
@@ -50,6 +62,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/nationaldrones/gdal2tiles',
-    version='0.1.6',
+    version='0.1.8',
     zip_safe=False,
 )
